@@ -1,6 +1,7 @@
 from game import event
 from game.player import Player
 from game.context import Context
+from game.display import announce
 import game.config as config
 import random
 
@@ -28,15 +29,12 @@ class  Seawaves(Context, event.Event):
                 if (c.inflict_damage (self.seawaves, "Harmed by seawave")):
                     self.result["message"] = ".. " + c.get_name() + " is thrown off the ship by the seawave!"
 
+        return self.result
+
     
     def process (self, world):
         self.go = False
         self.result = {}
         self.result["newevents"] = [ self ]
-        self.result["message"] = "default message"
-
-        
-        print ("A big seawave has occured.")
-           
-
+        self.result["message"] = "A big seawave has occured."
         return self.result
