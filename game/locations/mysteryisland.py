@@ -46,7 +46,7 @@ class MysteryBeach(location.SubLocation):
 
     def enter(self):
         announce(
-            " Choose a location to visit: \nMystery Beach \nMystery Forest  \nMystery Cave  \nMystery Cliff \nLeave Mystery Island\n"
+            " Choose a location to visit: \nMystery Beach \nMystery Forest  \nMystery Cave  \nMystery Cliff \nMystery Ruins \nLeave Mystery Island\n"
         )
         if self.treasure_collected== False:
             announce(
@@ -140,7 +140,7 @@ class MysteryForest(location.SubLocation):
     def collect_treasures(self):
         for treasure in self.treasures:
             announce(f"You found a {treasure.name} worth {treasure.value} points!")
-            #config.the_player.add_to_inventory(self.treasure)
+            config.the_player.add_to_inventory(self.treasure)
         announce("You have collected all the scattered treasures in the forest!")
 
     def start_encounter(self):
