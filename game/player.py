@@ -66,6 +66,13 @@ class Player (Context):
             for j in range (0, self.world.worldsize):
                 self.seen[i].append(False)
 
+    def collect_treasure(self, treasure):
+        if isinstance(treasure, items.TreasureItem):
+            announce(f"You have found a treasure: {treasure.name} worth {treasure.value} points!")
+            self.add_to_inventory([treasure])
+        else:
+            announce("This is not a treasure item.")
+
     def save_game(self):
         if "jsonpickle" not in sys.modules:
             announce ("jsonpickle hasn't be imported. Saving is impossible.")

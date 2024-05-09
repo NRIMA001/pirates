@@ -94,3 +94,44 @@ class Treasure(Item):
     def __str__(self):
         return f"{self.name} (Treasure worth {self.value} shillings)"
         
+class TreasureItem(Item):
+    def __init__(self, name, value):
+        super().__init__(name, value)
+        self.treasure = True  # Flag to identify treasure items
+
+    def __str__(self):
+        return f"{self.name} (Treasure worth {self.value} shillings)"
+
+# Treasures code
+
+# class EnigmaticPearl(TreasureItem):
+#     def __init__(self):
+#         super().__init__("Enigmatic Pearl", 500)
+
+# class MysticAmulet(TreasureItem):
+#     def __init__(self):
+#         super().__init__("Mystic Amulet", 200)
+
+# class AncientRelic(TreasureItem):
+#     def __init__(self):
+#         super().__init__("Ancient Relic", 150)
+
+# class EnchantedFlower(TreasureItem):
+#     def __init__(self):
+#         super().__init__("Enchanted Flower", 100)
+
+# class LostScroll(TreasureItem):
+#     def __init__(self):
+#         super().__init__("Lost Scroll", 250)
+
+# class TreasureMap(TreasureItem):
+#     def __init__(self):
+#         super().__init__("Treasure Map", 300)
+# New Food class (example)
+class Food(Item):
+    def __init__(self, name, value, nutrition):
+        super().__init__(name, value)
+        self.nutrition = nutrition  # Nutritional value of the food
+
+    def __str__(self):
+        return f"{self.name} (Food, Nutrition: {self.nutrition})"
