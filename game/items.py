@@ -85,3 +85,12 @@ class Flintlock(Item):
         self.skill = "guns"
         self.verb = "shoot"
         self.verb2 = "shoots"
+
+class Treasure(Item):
+    def __init__(self,name,value):
+        super().__init__(name, value)
+        self.treasure = True  
+
+    def __str__(self):
+        return f"{self.name} (Treasure worth {self.value} shillings)"
+        
