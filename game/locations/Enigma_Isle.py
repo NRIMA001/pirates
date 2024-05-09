@@ -401,6 +401,24 @@ class SirensCove(location.SubLocation):
         if not self.song_solved:
             self.play_melody()
 
+    def process_verb(self, verb, cmd_list, nouns):
+        if verb == "beach":
+            config.the_player.next_loc = self.main_location.locations["beach"]
+        elif verb == "mystic_grove":
+            config.the_player.next_loc = self.main_location.locations["mystic_grove"]
+        elif verb == "hidden_temple":
+            config.the_player.next_loc = self.main_location.locations["hidden_temple"]
+        elif verb == "riddle_peak":
+            config.the_player.next_loc = self.main_location.locations["riddle_peak"]
+        elif verb == "sirens_cove":
+            config.the_player.next_loc = self.main_location.locations["sirens_cove"]
+        elif verb == "captains_hideout":
+            config.the_player.next_loc = self.main_location.locations["captains_hideout"]
+        elif verb == "leave":
+            announce("You return to your ship.")
+            config.the_player.next_loc = config.the_player.ship
+            config.the_player.visiting = False
+
     def play_melody(self):
         for i in range(1, 4):
             announce(f"Round {i}: Memorize the sequence!")
@@ -419,6 +437,7 @@ class SirensCove(location.SubLocation):
 
     def display_sequence(self, length):
         announce(' '.join(self.sequence[:length]))
+
 
 
 class CaptainsHideout(location.SubLocation):
